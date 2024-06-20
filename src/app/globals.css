@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-bg-color: #ffffff; /* Màu nền chủ đạo */
+  --secondary-bg-color: #f7f7f7; /* Màu nền phụ */
+  --text-color: #2a2a2a; /* Màu văn bản */
+  --border-color: #e0e0e0; /* Màu viền */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+[data-theme="dark"] body {
+  --primary-bg-color: #2a2a2a; /* Màu nền chủ đạo */
+  --secondary-bg-color: #1e1e1e; /* Màu nền phụ */
+  --text-color: #dcdcdc; /* Màu văn bản */
+  --border-color: #444444; /* Màu viền */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow */
+}
+
+@media (prefers-color-scheme: light) {
+}
+
+@media (prefers-color-scheme: dark) {
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+}
+
+* {
+  color: var(--text-color);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+a:hover {
+  opacity: 0.8;
+}
