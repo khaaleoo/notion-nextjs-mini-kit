@@ -19,7 +19,6 @@ This repository contains a mini kit for integrating Notion API with Next.js. Thi
 ## Library
 - [React Notion](https://github.com/splitbee/react-notion): minimal renderer for blogs & content pages
 - [@notionhq/client](https://www.npmjs.com/package/@notionhq/client): A simple and easy to use client for the Notion API
-- [notion-client](https://www.npmjs.com/package/notion-client?activeTab=readmeRobust) TypeScript client for the unofficial Notion API.
 - [Headlessui](https://headlessui.com/): UI components, designed to integrate beautifully with Tailwind CSS
 
 
@@ -59,7 +58,7 @@ To run this project, you will need to add the following environment variables to
 
 To revalidate static pages, access the following endpoint:
 
-https://yourdomain.com/api/revalidate?path=/yourpath&secret=yoursecret
+https://yourdomain/api/revalidate?path=/yourpath&secret=yoursecret
 
 
 

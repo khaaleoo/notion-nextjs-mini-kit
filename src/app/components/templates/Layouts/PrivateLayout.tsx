@@ -5,7 +5,7 @@ type TProps = {
 };
 
 const PrivateLayout: FC<TProps> = ({ children }: TProps) => (
-  <div className="public-layout">
+  <div className="private-layout">
     <header>Private Navigation</header>
     <main>{children}</main>
     <footer>Private Footer</footer>
