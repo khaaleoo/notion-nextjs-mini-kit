@@ -9,6 +9,8 @@ This repository contains a mini kit for integrating Notion API with Next.js. Thi
 - Flexible customization options
 - Lightweight and performant
 - Revalidate path for static generation
+- Renders Notion blocks straight from the official API — syntax-highlighted code blocks (Shiki) and Mermaid diagrams included
+- SEO out of the box: sitemap, robots.txt, RSS feed, JSON-LD article schema, and auto-generated OG images per post
 
 ## Tech Stack
 
@@ -16,8 +18,9 @@ This repository contains a mini kit for integrating Notion API with Next.js. Thi
 - Notion API
 
 ## Library
-- [React Notion](https://github.com/splitbee/react-notion): minimal renderer for blogs & content pages
-- [@notionhq/client](https://www.npmjs.com/package/@notionhq/client): A simple and easy to use client for the Notion API
+- [@notionhq/client](https://www.npmjs.com/package/@notionhq/client): official Notion API client — also powers the block renderer (no unofficial/undocumented endpoints)
+- [Shiki](https://shiki.style/): syntax highlighting for code blocks
+- [Mermaid](https://mermaid.js.org/): diagrams from ` ```mermaid ` code blocks
 - [Headlessui](https://headlessui.com/): UI components, designed to integrate beautifully with Tailwind CSS
   
 

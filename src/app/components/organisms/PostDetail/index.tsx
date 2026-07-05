@@ -1,10 +1,8 @@
-import { FC } from "react";
-import { NotionRenderer } from "react-notion";
-import "react-notion/src/styles.css";
-import "prismjs/themes/prism-tomorrow.css"; // only needed for code highlighting
-import "prismjs/components/prism-javascript";
+import NotionContent from "./NotionContent";
+import { highlightCodeBlocks } from "@helpers/shiki";
 import { TNotionBlogPage } from "@models/notion_blog";
 import clsx from "clsx";
+import "../../../styles/notion-content.css";
 
 type TProps = {
   generalInfo: TNotionBlogPage;
@@ -12,17 +10,20 @@ type TProps = {
   className?: string;
 };
 
-const PostDetail: FC<TProps> = (props: TProps) => {
+const PostDetail = async (props: TProps) => {
   const {
     generalInfo, //
     detailInfo,
     className,
   } = props;
+
+  const highlightedDetailInfo = detailInfo ? await highlightCodeBlocks(detailInfo) : null;
+
   return (
     <div id="post-detail" className={clsx("max-w-7xl mx-auto", className)}>
-      {detailInfo && (
+      {highlightedDetailInfo && (
         <div className="mt-4">
-          <NotionRenderer blockMap={detailInfo} />
+          <NotionContent detailInfo={highlightedDetailInfo} />
         </div>
       )}
     </div>
