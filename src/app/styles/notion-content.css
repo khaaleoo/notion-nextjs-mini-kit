@@ -515,6 +515,101 @@ img.notion-page-icon {
   margin-left: 1.1em;
 }
 
+/* [answer] toggle — click-to-reveal */
+.notion-reveal-answer {
+  margin: 12px 0;
+  border: 1px solid rgba(55, 53, 47, 0.12);
+  border-radius: 6px;
+  background: rgba(55, 53, 47, 0.03);
+  overflow: hidden;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.notion-reveal-answer[open] {
+  border-color: rgba(55, 53, 47, 0.22);
+  background: rgba(55, 53, 47, 0.04);
+}
+
+.notion-reveal-answer__summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  user-select: none;
+  transition: background-color 160ms ease;
+}
+
+.notion-reveal-answer__summary::-webkit-details-marker {
+  display: none;
+}
+
+.notion-reveal-answer__summary::marker {
+  content: "";
+}
+
+.notion-reveal-answer__summary:hover {
+  background: rgba(55, 53, 47, 0.04);
+}
+
+.notion-reveal-answer__summary:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(55, 53, 47, 0.28);
+}
+
+.notion-reveal-answer__chevron {
+  flex-shrink: 0;
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  opacity: 0.55;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.notion-reveal-answer[open] > .notion-reveal-answer__summary > .notion-reveal-answer__chevron {
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+.notion-reveal-answer__label--open {
+  display: none;
+}
+
+.notion-reveal-answer[open] > .notion-reveal-answer__summary > .notion-reveal-answer__label--closed {
+  display: none;
+}
+
+.notion-reveal-answer[open] > .notion-reveal-answer__summary > .notion-reveal-answer__label--open {
+  display: inline;
+}
+
+.notion-reveal-answer__content {
+  padding: 0 14px 14px;
+  border-top: 1px solid rgba(55, 53, 47, 0.08);
+  animation: notion-reveal-answer-in 200ms ease;
+}
+
+.notion-reveal-answer__content > *:first-child {
+  margin-top: 12px;
+}
+
+@keyframes notion-reveal-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .notion-table,
 .notion-th,
 .notion-td {
