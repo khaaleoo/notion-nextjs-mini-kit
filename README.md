@@ -10,6 +10,7 @@ This repository contains a mini kit for integrating Notion API with Next.js. Thi
 - Lightweight and performant
 - Revalidate path for static generation
 - Renders Notion blocks straight from the official API — syntax-highlighted code blocks (Shiki) and Mermaid diagrams included
+- Click-to-reveal answers via Notion toggles titled `[answer]` (Q&A / solutions posts)
 - SEO out of the box: sitemap, robots.txt, RSS feed, JSON-LD article schema, and auto-generated OG images per post
 
 ## Tech Stack
@@ -67,6 +68,29 @@ To run this project, you will need to add the following environment variables to
 To revalidate static pages, access the following endpoint:
 
 https://yourdomain/api/revalidate?path=/yourpath&secret=yoursecret
+
+### Click-to-reveal answers (`[answer]` toggles)
+
+For Q&A or solutions posts, hide answers behind a reveal CTA by using a Notion **Toggle** whose title starts with a reserved marker:
+
+| Toggle title in Notion | Rendered on the blog |
+| --- | --- |
+| `[answer]` | “Click to view answer” / “Hide answer” |
+| `[answer] Explanation` | Custom label “Explanation” (prefix stripped) |
+| Any other title | Normal toggle |
+
+Authoring pattern:
+
+```
+## Problem 1
+Question statement...
+
+▸ [answer]
+    SQL / solution content...
+    Explanation...
+```
+
+Unmarked toggles keep the default collapse UI, so you can still use toggles for optional notes.
 
 ## Used By
 
